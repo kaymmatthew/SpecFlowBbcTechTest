@@ -41,7 +41,7 @@ namespace SpecFlowBbcTechTest.PageObject
 
 
         public string getRegisterHeaderText() => RegisterHeaderText.Text;
-        public void ClickThirTeenOrOverButton() => ThirTeenOrOverButton.Click();
+        public void ClickThirTeenOrOverButton() => ThirTeenOrOverButton.ClickViaJs(driver);
         public void ClickContinueButton() => ContinueButton.Click();
         public void ClickRegisterSubBtn() => RegisterSubmit.Click();
         public string OkYouAreSignInTextDisplayed() => okYouAreSignInText.Text;

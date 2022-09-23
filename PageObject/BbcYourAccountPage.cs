@@ -15,7 +15,8 @@ namespace SpecFlowBbcTechTest.PageObject
         {
             this.driver = driver;
         }
-        private IWebElement YourAccountHeaderText => driver.FindElement(By.XPath("//h1[contains (@class, 'heading')][.='Your account']"));
+        private IWebElement YourAccountHeaderText => driver.FindElement(By.XPath(
+            "//h1[contains (@class, 'heading')][.='Your account']"));
         private IWebElement SignOutBtn => driver.FindElement(By.XPath("//a[contains(@class, 'link link')][.='Sign out']"));
 
 

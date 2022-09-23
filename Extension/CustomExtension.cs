@@ -17,7 +17,7 @@ namespace SpecFlowBbcTechTest.Extension
         /// <param name="element"></param>
         public static void ClickViaJs(this IWebElement element, IWebDriver driver)
         {
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoview(true)", element);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
             Thread.Sleep(TimeSpan.FromSeconds(1));
             element.Click();
         }

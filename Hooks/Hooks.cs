@@ -3,6 +3,10 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using SpecFlowBbcTechTest.Drivers;
 using TechTalk.SpecFlow;
+using System;
+using System.Diagnostics;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace SpecFlowBbcTechTest.Hooks
 {
@@ -18,6 +22,7 @@ namespace SpecFlowBbcTechTest.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
+            new DriverManager().SetUpDriver(new ChromeConfig());
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             container.RegisterInstanceAs<IWebDriver>(driver);
@@ -30,6 +35,18 @@ namespace SpecFlowBbcTechTest.Hooks
         public void AfterScenario()
         {
             driver?.Quit();
+            using (var process = Process.GetCurrentProcess())
+            {
+                if (process.ToString() == "chromedriver") 
+                {
+                    process.Kill(true);
+                }
+                else if (process.ToString() == "gechodriver")
+                {
+                    process.Kill(true);
+                }
+                driver?.Dispose(); driver = null;
+            }
         }
     }
 }

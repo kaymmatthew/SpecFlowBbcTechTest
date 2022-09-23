@@ -81,6 +81,16 @@ namespace SpecFlowBbcTechTest.StepDefinitions
             {
                 Console.WriteLine("Total count is", bbcHomePage.isCommentIconEnabled().Count);
             }
+
+            //var ist = new List<IWebElement>();
+            //ist.Add(bbcHomePage.isCommentIconEnabled()[0]);
+
+            //ist.ForEach(x =>
+            //{
+            //    Assert.IsTrue(x.Enabled);
+            //});
+
+            //bbcHomePage.isCommentIconEnabled().ToList().ForEach(x => { Assert.IsTrue(x.Enabled); });
         }
     }
 }

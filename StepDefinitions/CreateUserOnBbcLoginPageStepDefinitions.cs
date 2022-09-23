@@ -79,8 +79,9 @@ namespace SpecFlowBbcTechTest.StepDefinitions
         public void ThenIEntersTheFollowingDetails(Table table)
         {
             dynamic enterDetails = table.CreateDynamicInstance();
-            var radom = new Random().Next(0, 999);
-            bbcRegisterPage.EnterDetails(string.Format(enterDetails.Email, radom.ToString()), enterDetails.Password, enterDetails.Postcode);
+           
+            bbcRegisterPage.EnterDetails(string.Format(enterDetails.Email, DateTime.Now.ToString("HHmmssfff")), 
+                enterDetails.Password, enterDetails.Postcode);
         }
 
         [When(@"I select (.*)")]
